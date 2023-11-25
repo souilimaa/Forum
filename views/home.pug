@@ -1,0 +1,30 @@
+doctype html
+html(lang="en")
+    head
+        meta(charset="UTF-8")
+        meta(name="viewport", content="width=device-width, initial-scale=1.0")
+        link(rel="stylesheet", href="/css/homeStyle.css")
+        title Home
+    body 
+    div.page
+      div.header
+        if(session && session.UserID)
+          a(href="/Logout") Logout 
+        else 
+         a(href="/login") login
+      div.maQst
+        form(action="/question" method="POST") 
+         div
+           input(type="text" name="question" placeholder="Votre question ici ...." class="inputMyqst") 
+         div
+           input(type="submit" value="Envoyer" class="envoyerQst")
+      div.allQst
+        if(questions.length==0)
+          div.pasQst Il n'y a pas encore de questions ici
+        else
+          each question in questions
+            div.qst 
+              div #{question.date} #{question.email}
+              div.inp #{question.question}
+              -const url="/question/"+ question._id 
+              a(href=url class="r") Reponses

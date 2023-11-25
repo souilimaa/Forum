@@ -1,0 +1,33 @@
+doctype html
+html(lang="en")
+    head
+        meta(charset="UTF-8")
+        meta(name="viewport", content="width=device-width, initial-scale=1.0")
+        link(rel="stylesheet", href="/css/questionStyle.css")
+        title Document
+    body 
+        div.page 
+            div.header 
+                if(session && session.UserID)
+                     a(href="/") Home 
+                     a(href="/logout") logout  
+                
+                else 
+                    a(href="/") Home 
+                    a(href="/login") login 
+                
+
+            div.qst #{qst.question}
+            .Sendresponse 
+                form(action="/reponse/"+qst._id method="POST") 
+                    input(type="text" name="reponse" required placeholder="Votre reponse ici ...."  class="inputReponse")
+                    div 
+                        input(type="submit" value="Envoyer" class="sendResponseInput")
+            div.allReponses 
+                 if(responses.length==0)
+                     div.pasRes Il n'y a pas encore de reponses ici
+                 else
+                    each response in responses 
+                        div.reponse 
+                            div #{response.date} #{response.email}
+                            div.rep #{response.response}

@@ -1,0 +1,44 @@
+body{
+    display: flex;
+    justify-content: center;
+}
+.page{
+    background-color: lightgray;
+    padding: 30px;
+
+}  
+.title{
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 20px;
+}
+
+form{
+    margin: 30px;
+
+}
+
+label {
+    width: 200px; 
+    text-align: left;
+    margin-bottom: 10px; 
+    display: inline-block;
+    font-size: 18px;
+
+}
+.regBu{
+    background-color: #3399CC;
+    border-color: #3399CC;
+    color: white;
+    height: 30px;
+    width: 170px;
+    margin: 10px;
+    margin-top: 5px;
+    margin-right: 0px;
+    float: right;
+    font-size: 18px;
+
+}
+input{
+    height: 22px;
+}

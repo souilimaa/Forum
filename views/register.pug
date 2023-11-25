@@ -1,0 +1,25 @@
+doctype html
+html(lang="en")
+    head
+        meta(charset="UTF-8")
+        meta(name="viewport", content="width=device-width, initial-scale=1.0")
+        link(rel="stylesheet", href="./css/registerStyle.css")
+        title Register
+    body 
+     div.page 
+        div.title Enregistrement 
+        form(action="/users" method="POST") 
+         div 
+          label(for="nom") Nom: 
+          input(type="text" id="nom" name="nom" required) 
+         div 
+          label(for="email") Email: 
+          input(type="email" required id="email" name="email") 
+         div 
+          label(for="password") Password: 
+          input(type="password" id="password" name="password" required)  
+         div
+          label(for="confirmerPassword") Confirmer Mot de passe: 
+          input(type="password" id="confirmerPassword" name="confirmerPassword" required)
+         input(type="submit" value="Register" class="regBu")
+
