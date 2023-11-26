@@ -5,6 +5,7 @@ const session=require('express-session')
 const usersRouter=require('./routes/usersRouter')
 const questionRouter=require('./routes/questionRouter')
 const responseRouter=require('./routes/responseRouter')
+const authMiddleware=require('./middelwares/auth')
 const app=express()
 
 app.set('view engine','pug')
@@ -43,16 +44,17 @@ app.get('/register',(req,res)=>{
 app.get('/login',(req,res)=>{
     res.render('login')
 })
+app.post('/home',authMiddleware.loginMiddleware)
+app.get('/logout',authMiddleware.logoutMiddleware)
+// app.get('/logout',(req,res)=>{
+//     req.session.destroy((err)=>{
+//         if(err){
 
-app.get('/logout',(req,res)=>{
-    req.session.destroy((err)=>{
-        if(err){
-
-        }else{
-            res.redirect('/')
-        }
-    })
-})
+//         }else{
+//             res.redirect('/')
+//         }
+//     })
+// })
 
 
 

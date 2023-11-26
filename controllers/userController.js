@@ -10,7 +10,7 @@ exports.addUser=async (req,res)=>{
         res.status(400).json({
             Email:req.body.email,
             message:"user Deja exist"
-
+   
         })
        }
        
